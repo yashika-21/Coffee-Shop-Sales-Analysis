@@ -101,12 +101,12 @@ SELECT MIN(HOUR(transaction_time)) 'HOURS' FROM SALES;
 -- Checking for the last hour.
 SELECT MAX(HOUR(transaction_time)) 'HOURS' FROM SALES;
 ```
-4.transaction_qty
+4. transaction_qty
 ``` sql
 SELECT DISTINCT(transaction_qty) FROM sales;
 ```
 5. store_id
-``` 
+``` sql
 SELECT DISTINCT(store_id) FROM SALES;    -- There are 3 stores 
 ``` 
 
