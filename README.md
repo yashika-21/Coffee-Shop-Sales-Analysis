@@ -67,11 +67,13 @@ product_detail IS NULL;
 SELECT TRANSACTION_ID, COUNT(*) FROM SALES GROUP BY TRANSACTION_ID HAVING COUNT(*) > 1;
 ```
 - **Exploring the columns:**
-```sql
--- 1. transaction_id
-SELECT COUNT(DISTINCT transaction_id) FROM sales; 
 
--- 2. transaction_date
+1. transaction_id
+``` sql
+SELECT COUNT(DISTINCT transaction_id) FROM sales; 
+```
+2. transaction_date
+``` sql
 -- Which year data is from?
 SELECT DISTINCT(YEAR(transaction_date)) 'YEAR' FROM SALES;  -- data is of Year 2023
 
