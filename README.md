@@ -31,4 +31,30 @@ CREATE TABLE sales (
 The data was imported using command line.
 
 ## 3. Data Exploration and Pre-Processing.
-Explored all the columns of the dataset to ensure data accuracy and consistency. The following questions were asked and subsequent queries were formulated.
+Explored all the columns of the dataset to ensure data accuracy and consistency.
+- **Null value check** - Check for any null values in the dataset.
+- **Check for duplicate records** - Check for any duplicate records in the dataset.
+
+``` sql
+SELECT * FROM SALES
+WHERE 
+transaction_id IS NULL
+OR 
+transaction_date IS NULL
+OR 
+transaction_qty IS NULL
+OR 
+store_id IS NULL
+OR 
+store_location IS NULL 
+OR 
+product_id IS NULL 
+OR 
+unit_price IS NULL
+OR
+product_category IS NULL 
+OR 
+product_type IS NULL
+OR 
+product_detail IS NULL;
+```
