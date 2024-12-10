@@ -105,5 +105,8 @@ SELECT MAX(HOUR(transaction_time)) 'HOURS' FROM SALES;
 ``` sql
 SELECT DISTINCT(transaction_qty) FROM sales;
 ```
-
+5. store_id
+``` 
+SELECT DISTINCT(store_id) FROM SALES;    -- There are 3 stores 
+``` 
 
