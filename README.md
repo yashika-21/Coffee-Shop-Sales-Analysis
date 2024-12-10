@@ -36,6 +36,7 @@ Explored all the columns of the dataset to ensure data accuracy and consistency.
 - **Check for duplicate records** - Check for any duplicate records in the dataset.
 
 ``` sql
+-- Checking for null values.
 SELECT * FROM SALES
 WHERE 
 transaction_id IS NULL
@@ -57,4 +58,7 @@ OR
 product_type IS NULL
 OR 
 product_detail IS NULL;
+
+-- Checking for duplicates.
+SELECT TRANSACTION_ID, COUNT(*) FROM SALES GROUP BY TRANSACTION_ID HAVING COUNT(*) > 1;
 ```
