@@ -92,3 +92,18 @@ UPDATE SALES SET month_name = MONTHNAME(transaction_date);
 ALTER TABLE SALES ADD COLUMN day_name VARCHAR(10);
 UPDATE SALES SET day_name = DAYNAME(transaction_date);
 ```
+
+3. transaction_time
+``` sql
+-- Checking for the earliest hour at which the transactions took place.
+SELECT MIN(HOUR(transaction_time)) 'HOURS' FROM SALES;
+
+-- Checking for the last hour.
+SELECT MAX(HOUR(transaction_time)) 'HOURS' FROM SALES;
+```
+4.transaction_qty
+``` sql
+SELECT DISTINCT(transaction_qty) FROM sales;
+```
+
+
