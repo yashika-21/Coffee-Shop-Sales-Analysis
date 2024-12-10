@@ -7,7 +7,7 @@
    * **Database Creation:** The project starts by creating a database named coffee_shop.
    * **Table Creation:** In the database a table named 'sales' is created to store the sales data. The table structure includes columns for Transaction Id, transaction date, transaction time, transaction qty, store id, store location, product id, unit price, product category, product type, and product detail.
 
--- Creating the database.
+``` sql
 CREATE DATABASE COFFEE_SHOP;
 USE COFFEE_SHOP;
 
@@ -25,3 +25,4 @@ CREATE TABLE sales (
     product_type VARCHAR(25),
     product_detail VARCHAR(30)
 );
+```
