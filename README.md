@@ -62,3 +62,27 @@ product_detail IS NULL;
 -- Checking for duplicates.
 SELECT TRANSACTION_ID, COUNT(*) FROM SALES GROUP BY TRANSACTION_ID HAVING COUNT(*) > 1;
 ```
+- **Exploring the columns.**
+```sql
+-- EXPLORING THE COLUMNS --
+-- 1. transaction_id
+
+-- 2. transaction_date
+-- Which year data is from?
+SELECT DISTINCT(YEAR(transaction_date)) 'YEAR' FROM SALES;  -- data if 2023
+
+-- How many months of data is it?
+SELECT DISTINCT(MONTHNAME(transaction_date)) 'MONTHS' FROM SALES; -- 6 MONTHS  JANUARY TO JUNE
+
+-- ADDING MONTH NUMBER COLUMN
+ALTER TABLE SALES ADD COLUMN month_no INT;
+UPDATE SALES SET month_no = MONTH(transaction_date);
+
+-- ADDING MONTH NAME COLUMN
+ALTER TABLE SALES ADD COLUMN month_name VARCHAR(15);
+UPDATE SALES SET month_name = MONTHNAME(transaction_date);
+select * from sales limit 15;
+-- ADDING DAY NAME COLUMN
+ALTER TABLE SALES ADD COLUMN day_name VARCHAR(10);
+UPDATE SALES SET day_name = DAYNAME(transaction_date);
+```
