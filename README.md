@@ -195,7 +195,7 @@ ORDER BY ROUND(SUM(TRANSACTION_QTY * UNIT_PRICE)) DESC;
 ```
 ![Screenshot 2024-12-12 125316](https://github.com/user-attachments/assets/c7575425-f68b-4e87-8c13-dbd5858bc6bc)
 
-**Q5. In each category, which type of product had the most sales?
+**Q5. In each category, which type of product had the most sales?**
 ```sql
 SELECT * from
 (SELECT 
