@@ -134,7 +134,8 @@ SELECT DISTINCT(transaction_qty) FROM sales;
 ``` sql
 SELECT DISTINCT(store_id) FROM SALES;     
 ``` 
-- There are 3 stores of the Coffee Shop.
+- There are 3 stores of the Coffee Shop. This column contains the ID of each store.
+
 **6. store_location**
 ```sql
 SELECT DISTINCT(store_location) FROM SALES;  -- There are 3 different locations
@@ -143,4 +144,26 @@ SELECT DISTINCT(store_id),store_location FROM SALES;  -- STORE + LOCATION
 ```
 ![Screenshot 2024-12-12 123750](https://github.com/user-attachments/assets/14aac94f-660e-4269-9518-330313c17226)
 
+**7. product_id**
+```sql
+SELECT DISTINCT(product_id),PRODUCT_DETAIL FROM SALES ORDER BY PRODUCT_ID; -- ID'S OF THE PRODUCTS THEIR NAMES
+```
+**8. unit_price **
+```sql
+SELECT AVG(UNIT_PRICE) FROM SALES;
+```
+**9. product_category**
+```sql
+SELECT DISTINCT(product_category) FROM SALES;  
+```
+There are 9 product categories. 
+
+**10. product_type**
+```sql
+SELECT DISTINCT(product_type),PRODUCT_DETAIL FROM SALES;
+```
+
+**11. product_detail **
+
+# DATA ANALYSIS AND BUSINESS QUESTIONS
 
