@@ -32,7 +32,7 @@ The data was imported using command line.
 
 ## 3. Data Exploration and Pre-Processing.
 Explored all the columns of the dataset to ensure data accuracy and consistency.
-- ** Record Count** - Count the number of records.
+- **Record Count** - Count the number of records.
 - **Null value check** - Check for any null values in the dataset.
 - **Check for duplicate records** - Check for any duplicate records in the dataset.
 
@@ -64,7 +64,10 @@ OR
 product_type IS NULL
 OR 
 product_detail IS NULL;
+```
+![Screenshot 2024-12-12 121003](https://github.com/user-attachments/assets/925eab92-cb08-4924-8da3-d6f2746e228f)
 
+```
 -- Checking for duplicates.
 SELECT TRANSACTION_ID, COUNT(*) FROM SALES GROUP BY TRANSACTION_ID HAVING COUNT(*) > 1;
 ```
