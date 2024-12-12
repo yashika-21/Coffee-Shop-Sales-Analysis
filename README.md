@@ -165,5 +165,20 @@ SELECT DISTINCT(product_type),PRODUCT_DETAIL FROM SALES;
 
 **11. product_detail **
 
-# DATA ANALYSIS AND BUSINESS QUESTIONS
+## Data Analysis and Business Questions
+**Q1. What were the total sales and total orders for the 6 months?**
+```sql
+SELECT ROUND(SUM(transaction_qty * unit_price)) TOTAL_REVENUE,COUNT(*) TOTAL_ORDERS FROM SALES;
+```
+**Q2. Store wise contribution to sales?**
+```sql
+SELECT STORE_ID,STORE_LOCATION,ROUND(SUM(transaction_qty * unit_price),0) TOTAL_REVENUE
+FROM SALES
+GROUP BY STORE_ID,STORE_LOCATION ORDER BY TOTAL_REVENUE DESC;  
+```
+**Q3. What were the sales per month?**
+```sql
+SELECT MONTH_NAME,ROUND(SUM(transaction_qty * unit_price),0) MONTHLY_SALES FROM SALES GROUP BY MONTH_NAME ORDER BY MONTHLY_SALES DESC;
+select store_location,sum(transaction_qty) from sales group by store_location;
+```
 
