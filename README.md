@@ -75,13 +75,13 @@ SELECT TRANSACTION_ID, COUNT(*) FROM SALES GROUP BY TRANSACTION_ID HAVING COUNT(
 
 - **Exploring the columns:**
 
-1. transaction_id
+**1. transaction_id**
 ``` sql
 SELECT COUNT(DISTINCT transaction_id) FROM sales; 
 ```
 The transaction_id column is the Primary Key of the table 'sales'. The column contains of unique and not null values.
 
-2. transaction_date
+**2. transaction_date**
 
 - The data is of which Year?
 ```sql
@@ -113,7 +113,7 @@ UPDATE SALES SET month_name = MONTHNAME(transaction_date);
 ALTER TABLE SALES ADD COLUMN day_name VARCHAR(10);
 UPDATE SALES SET day_name = DAYNAME(transaction_date);
 
-3. transaction_time
+**3. transaction_time**
 - Checking for the earliest hour at which the transactions took place.
 ```sql
 SELECT MIN(HOUR(transaction_time)) 'HOURS' FROM SALES;
@@ -122,11 +122,11 @@ SELECT MIN(HOUR(transaction_time)) 'HOURS' FROM SALES;
 ```sql
 SELECT MAX(HOUR(transaction_time)) 'HOURS' FROM SALES;
 ```
-4. transaction_qty
+**4. transaction_qty**
 ``` sql
 SELECT DISTINCT(transaction_qty) FROM sales;
 ```
-5. store_id
+**5. store_id**
 ``` sql
 SELECT DISTINCT(store_id) FROM SALES;     
 ``` 
