@@ -41,7 +41,7 @@ Explored all the columns of the dataset to ensure data accuracy and consistency.
 SELECT COUNT(*) FROM SALES;
 ```
 ![Screenshot 2024-12-12 120439](https://github.com/user-attachments/assets/64093d63-6bfb-4159-88d4-970469f95073)
-```
+```sql
 -- Checking for null values.
 SELECT * FROM SALES
 WHERE 
@@ -67,7 +67,7 @@ product_detail IS NULL;
 ```
 ![Screenshot 2024-12-12 121003](https://github.com/user-attachments/assets/925eab92-cb08-4924-8da3-d6f2746e228f)
 
-```
+```sql
 -- Checking for duplicates.
 SELECT TRANSACTION_ID, COUNT(*) FROM SALES GROUP BY TRANSACTION_ID HAVING COUNT(*) > 1;
 ```
