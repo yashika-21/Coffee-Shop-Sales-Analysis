@@ -195,7 +195,7 @@ ORDER BY ROUND(SUM(TRANSACTION_QTY * UNIT_PRICE)) DESC;
 ```
 ![Screenshot 2024-12-12 125316](https://github.com/user-attachments/assets/c7575425-f68b-4e87-8c13-dbd5858bc6bc)
 
-**Q5. Best selling product in each category. (on the basis of revenue)**
+**Q5. In each category, which type of product had the most sales?
 ```sql
 SELECT * from
 (SELECT 
@@ -209,4 +209,13 @@ where RNKS = 1;
 ```
 ![Screenshot 2024-12-12 125242](https://github.com/user-attachments/assets/67cc7c46-909f-4d50-883b-ef04df203a19)
 
-
+**Q6. In each category, which type of product sold the most quantity?**
+```sql
+SELECT 
+	PRODUCT_CATEGORY, 
+    PRODUCT_TYPE,
+	SUM(transaction_qty) SalesVolume,
+    RANK() OVER(PARTITION BY PRODUCT_CATEGORY ORDER BY SUM(transaction_qty) desc) RNKS
+FROM SALES
+GROUP BY PRODUCT_CATEGORY, PRODUCT_TYPE;
+```
