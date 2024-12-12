@@ -39,8 +39,9 @@ Explored all the columns of the dataset to ensure data accuracy and consistency.
 ``` sql
 -- Number of Records?
 SELECT COUNT(*) FROM SALES;
+```
 ![Screenshot 2024-12-12 120439](https://github.com/user-attachments/assets/64093d63-6bfb-4159-88d4-970469f95073)
-
+```
 -- Checking for null values.
 SELECT * FROM SALES
 WHERE 
