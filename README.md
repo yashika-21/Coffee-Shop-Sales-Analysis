@@ -112,14 +112,14 @@ UPDATE SALES SET month_name = MONTHNAME(transaction_date);
 -- ADDING DAY NAME COLUMN
 ALTER TABLE SALES ADD COLUMN day_name VARCHAR(10);
 UPDATE SALES SET day_name = DAYNAME(transaction_date);
-```
 
 3. transaction_time
-``` sql
--- Checking for the earliest hour at which the transactions took place.
+- Checking for the earliest hour at which the transactions took place.
+```sql
 SELECT MIN(HOUR(transaction_time)) 'HOURS' FROM SALES;
-
--- Checking for the last hour.
+```
+- Checking for the last hour.
+```sql
 SELECT MAX(HOUR(transaction_time)) 'HOURS' FROM SALES;
 ```
 4. transaction_qty
@@ -128,6 +128,6 @@ SELECT DISTINCT(transaction_qty) FROM sales;
 ```
 5. store_id
 ``` sql
-SELECT DISTINCT(store_id) FROM SALES;    -- There are 3 stores 
+SELECT DISTINCT(store_id) FROM SALES;     
 ``` 
-
+- There are 3 stores of the Coffee Shop.
