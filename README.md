@@ -71,19 +71,35 @@ product_detail IS NULL;
 -- Checking for duplicates.
 SELECT TRANSACTION_ID, COUNT(*) FROM SALES GROUP BY TRANSACTION_ID HAVING COUNT(*) > 1;
 ```
+![Screenshot 2024-12-12 121449](https://github.com/user-attachments/assets/25350245-c2b3-4964-a043-3bb510c13683)
+
 - **Exploring the columns:**
 
 1. transaction_id
 ``` sql
 SELECT COUNT(DISTINCT transaction_id) FROM sales; 
 ```
-2. transaction_date
-``` sql
--- Which year data is from?
-SELECT DISTINCT(YEAR(transaction_date)) 'YEAR' FROM SALES;  -- data is of Year 2023
+The transaction_id column is the Primary Key of the table 'sales'. The column contains of unique and not null values.
 
--- How many months of data is it?
-SELECT DISTINCT(MONTHNAME(transaction_date)) 'MONTHS' FROM SALES; -- 6 MONTHS JANUARY TO JUNE
+2. transaction_date
+
+- The data is of which Year?
+```sql
+SELECT DISTINCT(YEAR(transaction_date)) 'YEAR' FROM SALES;  
+```
+![Screenshot 2024-12-12 121944](https://github.com/user-attachments/assets/fa1ba1cd-2685-4691-b297-c4906e7aa988)
+
+- How many months of data is it?
+```sql
+SELECT COUNT(DISTINCT monthname(TRANSACTION_DATE)) 'NUMBER OF MONTHS' FROM SALES;
+```
+![Screenshot 2024-12-12 122444](https://github.com/user-attachments/assets/2d20060d-c639-4909-b735-c3ef165c9cfe)
+
+- Which months is the data from?
+```sql
+SELECT DISTINCT(MONTHNAME(transaction_date)) 'MONTHS' FROM SALES;
+```
+![Screenshot 2024-12-12 122522](https://github.com/user-attachments/assets/32a2ea3c-91b1-4ce8-bf9a-7c936d80e207)
 
 -- ADDING MONTH NUMBER COLUMN
 ALTER TABLE SALES ADD COLUMN month_no INT;
