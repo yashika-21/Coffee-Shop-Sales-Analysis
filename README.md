@@ -118,10 +118,14 @@ UPDATE SALES SET day_name = DAYNAME(transaction_date);
 ```sql
 SELECT MIN(HOUR(transaction_time)) 'HOURS' FROM SALES;
 ```
+![Screenshot 2024-12-12 123530](https://github.com/user-attachments/assets/06ceff74-45d5-42c1-a405-7eec376be685)
+
 - Checking for the last hour.
 ```sql
 SELECT MAX(HOUR(transaction_time)) 'HOURS' FROM SALES;
 ```
+![Screenshot 2024-12-12 123555](https://github.com/user-attachments/assets/b49dfaca-d07c-4cb8-8934-72bfc59d521d)
+
 **4. transaction_qty**
 ``` sql
 SELECT DISTINCT(transaction_qty) FROM sales;
@@ -131,3 +135,12 @@ SELECT DISTINCT(transaction_qty) FROM sales;
 SELECT DISTINCT(store_id) FROM SALES;     
 ``` 
 - There are 3 stores of the Coffee Shop.
+**6. store_location**
+```sql
+SELECT DISTINCT(store_location) FROM SALES;  -- There are 3 different locations
+
+SELECT DISTINCT(store_id),store_location FROM SALES;  -- STORE + LOCATION
+```
+![Screenshot 2024-12-12 123750](https://github.com/user-attachments/assets/14aac94f-660e-4269-9518-330313c17226)
+
+
