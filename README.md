@@ -191,10 +191,10 @@ FROM SALES GROUP BY MONTH_NAME ORDER BY MONTHLY_SALES DESC;
 ```sql
 SELECT 
 	MONTH_NAME,
-    month(TRANSACTION_DATE) AS MONTH_NUMBER,
-    STORE_LOCATION,
-    ROUND(SUM(transaction_qty * unit_price)) 'TOTAL SALES',
-    RANK() OVER(PARTITION BY month(TRANSACTION_DATE) ORDER BY ROUND(SUM(transaction_qty * unit_price)) DESC) RNK
+	month(TRANSACTION_DATE) AS MONTH_NUMBER,
+	STORE_LOCATION,
+	ROUND(SUM(transaction_qty * unit_price)) 'TOTAL SALES',
+	RANK() OVER(PARTITION BY month(TRANSACTION_DATE) ORDER BY ROUND(SUM(transaction_qty * unit_price)) DESC) RNK
 FROM SALES 
 GROUP BY MONTH_NAME,month(TRANSACTION_DATE),STORE_LOCATION;
 ```
@@ -214,22 +214,21 @@ ORDER BY ROUND(SUM(TRANSACTION_QTY * UNIT_PRICE)) DESC;
 SELECT * from
 (SELECT 
 	PRODUCT_CATEGORY, 
-    PRODUCT_TYPE,
+    	PRODUCT_TYPE,
 	ROUND(SUM(transaction_qty * unit_price)) 'TOTAL SALES',
-    RANK() OVER(PARTITION BY PRODUCT_CATEGORY ORDER BY ROUND(SUM(transaction_qty * unit_price)) DESC ) RNKS
+    	RANK() OVER(PARTITION BY PRODUCT_CATEGORY ORDER BY ROUND(SUM(transaction_qty * unit_price)) DESC ) RNKS
 FROM SALES
-GROUP BY PRODUCT_CATEGORY, PRODUCT_TYPE) A
-where RNKS = 1;
+GROUP BY PRODUCT_CATEGORY, PRODUCT_TYPE) A where RNKS = 1;
 ```
 ![Screenshot 2024-12-12 125242](https://github.com/user-attachments/assets/67cc7c46-909f-4d50-883b-ef04df203a19)
 
-**Q6. In each category, which type of product sold the most quantity?**
+**Q7. In each category, which type of product sold the most quantity?**
 ```sql
 SELECT 
 	PRODUCT_CATEGORY, 
-    PRODUCT_TYPE,
+    	PRODUCT_TYPE,
 	SUM(transaction_qty) SalesVolume,
-    RANK() OVER(PARTITION BY PRODUCT_CATEGORY ORDER BY SUM(transaction_qty) desc) RNKS
+    	RANK() OVER(PARTITION BY PRODUCT_CATEGORY ORDER BY SUM(transaction_qty) desc) RNKS
 FROM SALES
 GROUP BY PRODUCT_CATEGORY, PRODUCT_TYPE;
 ```
