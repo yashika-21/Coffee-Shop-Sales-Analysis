@@ -275,7 +275,8 @@ GROUP BY PRODUCT_CATEGORY, PRODUCT_TYPE,PRODUCT_NAME) BEST_SELLERS WHERE RN <= 2
 
 **Q12. Which days of the week were busy?**
 ```sql
-SELECT DAY_NAME,COUNT(TRANSACTION_ID) as 'NO. OF TRANSACTIONS'FROM SALES GROUP BY DAY_NAME ORDER BY COUNT(TRANSACTION_ID) DESC;
+SELECT DAY_NAME,COUNT(TRANSACTION_ID) as 'NO. OF TRANSACTIONS'FROM SALES
+GROUP BY DAY_NAME ORDER BY COUNT(TRANSACTION_ID) DESC;
 ```
 ![Screenshot 2024-12-17 205236](https://github.com/user-attachments/assets/a2b4d5fc-0560-4ca6-95e4-0a2002fc245c)  
 The number of transactions have been more on weekdays i.e. Monday to Friday, and less on weekends.  
@@ -286,5 +287,7 @@ SELECT HOURS,COUNT(TRANSACTION_ID) AS NO_OF_TRANSACTIONS
 FROM SALES 
 GROUP BY HOURS ORDER BY HOURS;
 ```
-![Screenshot 2024-12-17 210255](https://github.com/user-attachments/assets/9133fcf5-24ac-4968-8623-41137e48cc26)
+![Screenshot 2024-12-17 210255](https://github.com/user-attachments/assets/9133fcf5-24ac-4968-8623-41137e48cc26)  
+
+## Business Insights and Recommendations
 
