@@ -226,8 +226,8 @@ SELECT PRODUCT_CATEGORY,PRODUCT_TYPE,PRODUCT_NAME,ROUND(SUM(TRANSACTION_QTY*UNIT
 FROM SALES GROUP BY PRODUCT_CATEGORY,PRODUCT_TYPE,PRODUCT_NAME 
 ORDER BY ROUND(SUM(TRANSACTION_QTY*UNIT_PRICE)) DESC LIMIT 5;
 ```
-![Screenshot 2024-12-17 192114](https://github.com/user-attachments/assets/738d4ca0-4f46-4eda-8ffc-4c432c084422)
-
+![Screenshot 2024-12-17 192114](https://github.com/user-attachments/assets/738d4ca0-4f46-4eda-8ffc-4c432c084422)\n
+2 products: Columbian Medium Roast & Our Old Time Diner Blend, both from the coffee category had a good amount of quantity sold, however, he sales from these products were not in the top 5 category.
 **Q8. What were overall Bottom 5 Products on the basis of Sales Volume?**
 ```sql
 SELECT PRODUCT_CATEGORY,PRODUCT_TYPE,PRODUCT_NAME,SUM(TRANSACTION_QTY) AS 'TOTAL QTY SOLD' 
