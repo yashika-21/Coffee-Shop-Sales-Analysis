@@ -247,6 +247,34 @@ ORDER BY ROUND(SUM(TRANSACTION_QTY*UNIT_PRICE)) LIMIT 5;
 ```
 ![Screenshot 2024-12-17 192314](https://github.com/user-attachments/assets/5c82a77b-f748-476f-93c0-6499edf0c656)
 
+**Q10. What were the Top 2 products in each category on the basis of quantity sold?**
+```sql
+SELECT * FROM
+(SELECT 
+    PRODUCT_CATEGORY,PRODUCT_TYPE,
+    PRODUCT_NAME,
+    SUM(TRANSACTION_QTY) AS 'TOTAL QTY SOLD',
+    DENSE_RANK() OVER(PARTITION BY PRODUCT_CATEGORY ORDER BY SUM(TRANSACTION_QTY) DESC) RN
+FROM SALES
+GROUP BY PRODUCT_CATEGORY, PRODUCT_TYPE,PRODUCT_NAME) BEST_SELLERS WHERE RN <= 2;
+```
+![Screenshot 2024-12-17 204121](https://github.com/user-attachments/assets/73284976-70f0-46ae-b801-fa4c750953d2)
+
+**Q11. What were the Top 2 products in each category on the basis of revenue?**
+```sql
+SELECT * FROM
+(SELECT 
+    PRODUCT_CATEGORY,PRODUCT_TYPE,
+    PRODUCT_NAME,
+    ROUND(SUM(TRANSACTION_QTY*UNIT_PRICE)) AS 'TOTAL SALES',
+    DENSE_RANK() OVER(PARTITION BY PRODUCT_CATEGORY ORDER BY ROUND(SUM(TRANSACTION_QTY*UNIT_PRICE)) DESC) RN
+FROM SALES
+GROUP BY PRODUCT_CATEGORY, PRODUCT_TYPE,PRODUCT_NAME) BEST_SELLERS WHERE RN <= 2;
+```
+![Screenshot 2024-12-17 204319](https://github.com/user-attachments/assets/6b142a99-5471-47bb-8ee6-74d4b1e39308)
+
+
+
 
 Q. Which days of the week were busy? (Week days or Weekends?)
 ```sql
