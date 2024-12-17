@@ -212,26 +212,41 @@ ORDER BY ROUND(SUM(TRANSACTION_QTY * UNIT_PRICE)) DESC;
 ![Screenshot 2024-12-12 125316](https://github.com/user-attachments/assets/1f8407b6-d55e-4c17-876b-6a79a3ec6664)
 
 
-**Q6. In each category, which type of product had the most sales?**
-```sql
-SELECT * from
-(SELECT 
-	PRODUCT_CATEGORY, 
-    	PRODUCT_TYPE,
-	ROUND(SUM(transaction_qty * unit_price)) 'TOTAL SALES',
-    	RANK() OVER(PARTITION BY PRODUCT_CATEGORY ORDER BY ROUND(SUM(transaction_qty * unit_price)) DESC ) RNKS
-FROM SALES
-GROUP BY PRODUCT_CATEGORY, PRODUCT_TYPE) A where RNKS = 1;
-```
-![Screenshot 2024-12-12 125242](https://github.com/user-attachments/assets/67cc7c46-909f-4d50-883b-ef04df203a19)
-
-**Q7. In each category, which type of product sold the most quantity?**
+**Q6. What were overall top 5 Best Selling Products?**
 ```sql
 SELECT 
-	PRODUCT_CATEGORY, 
+	PRODUCT_CATEGORY,
     	PRODUCT_TYPE,
-	SUM(transaction_qty) SalesVolume,
-    	RANK() OVER(PARTITION BY PRODUCT_CATEGORY ORDER BY SUM(transaction_qty) desc) RNKS
-FROM SALES
-GROUP BY PRODUCT_CATEGORY, PRODUCT_TYPE;
+    	PRODUCT_NAME,
+    	ROUND(SUM(TRANSACTION_QTY*UNIT_PRICE)) AS 'TOTAL SALES'
+FROM SALES 
+GROUP BY PRODUCT_CATEGORY,PRODUCT_TYPE,PRODUCT_NAME
+ORDER BY ROUND(SUM(TRANSACTION_QTY*UNIT_PRICE)) DESC LIMIT 5;
 ```
+![Screenshot 2024-12-16 205457](https://github.com/user-attachments/assets/aa7d256c-d438-41bd-b5f0-9f9ab46a8e5c)
+
+**Q7.What were overall least 5 Selling Products?**
+```sql
+SELECT 
+	PRODUCT_CATEGORY,
+    	PRODUCT_TYPE,
+    	PRODUCT_NAME,
+    	ROUND(SUM(TRANSACTION_QTY*UNIT_PRICE)) AS 'TOTAL SALES'
+FROM SALES 
+GROUP BY PRODUCT_CATEGORY,PRODUCT_TYPE,PRODUCT_NAME
+ORDER BY ROUND(SUM(TRANSACTION_QTY*UNIT_PRICE)) ASC LIMIT 5;
+```
+![Screenshot 2024-12-16 205850](https://github.com/user-attachments/assets/05d8ed24-2d8a-4ced-9eb8-ed67c6ff7c4f)
+
+Q8. Which days of the week were busy? (Week days or Weekends?)
+```sql
+SELECT 
+    day_name,
+    hours,
+    COUNT(TRANSACTION_ID) AS 'NO. OF TRANSACTIONS',
+    RANK() OVER(PARTITION BY DAY_NAME ORDER BY COUNT(TRANSACTION_ID) DESC) RNK
+FROM SALES 
+GROUP BY DAY_NAME,hours
+HAVING DAY_NAME IN ('Saturday','Sunday');
+```
+
