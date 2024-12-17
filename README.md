@@ -273,18 +273,18 @@ GROUP BY PRODUCT_CATEGORY, PRODUCT_TYPE,PRODUCT_NAME) BEST_SELLERS WHERE RN <= 2
 ```
 ![Screenshot 2024-12-17 204319](https://github.com/user-attachments/assets/6b142a99-5471-47bb-8ee6-74d4b1e39308)
 
-
-
-
-Q. Which days of the week were busy? (Week days or Weekends?)
+**Q12. Which days of the week were busy?**
 ```sql
-SELECT 
-    day_name,
-    hours,
-    COUNT(TRANSACTION_ID) AS 'NO. OF TRANSACTIONS',
-    RANK() OVER(PARTITION BY DAY_NAME ORDER BY COUNT(TRANSACTION_ID) DESC) RNK
-FROM SALES 
-GROUP BY DAY_NAME,hours
-HAVING DAY_NAME IN ('Saturday','Sunday');
+SELECT DAY_NAME,COUNT(TRANSACTION_ID) as 'NO. OF TRANSACTIONS'FROM SALES GROUP BY DAY_NAME ORDER BY COUNT(TRANSACTION_ID) DESC;
 ```
+![Screenshot 2024-12-17 205236](https://github.com/user-attachments/assets/a2b4d5fc-0560-4ca6-95e4-0a2002fc245c)  
+The number of transactions have been more on weekdays i.e. Monday to Friday, and less on weekends.  
+
+**Q13. What are the peak sale hours?**
+```sql
+SELECT HOURS,COUNT(TRANSACTION_ID) AS NO_OF_TRANSACTIONS 
+FROM SALES 
+GROUP BY HOURS ORDER BY HOURS;
+```
+![Screenshot 2024-12-17 210255](https://github.com/user-attachments/assets/9133fcf5-24ac-4968-8623-41137e48cc26)
 
