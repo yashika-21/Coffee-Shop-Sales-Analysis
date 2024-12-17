@@ -218,6 +218,7 @@ SELECT PRODUCT_CATEGORY,PRODUCT_TYPE,PRODUCT_NAME,SUM(TRANSACTION_QTY) AS 'TOTAL
 FROM SALES GROUP BY PRODUCT_CATEGORY,PRODUCT_TYPE,PRODUCT_NAME 
 ORDER BY SUM(TRANSACTION_QTY) DESC LIMIT 5;
 ```
+![Screenshot 2024-12-17 192001](https://github.com/user-attachments/assets/da7fad35-2e2c-4869-a5c0-e2e3f4b47f55)
 
 **Q7.What were overall top 5 Best Selling Products on the basis of Revenue?**
 ```sql
@@ -225,7 +226,26 @@ SELECT PRODUCT_CATEGORY,PRODUCT_TYPE,PRODUCT_NAME,ROUND(SUM(TRANSACTION_QTY*UNIT
 FROM SALES GROUP BY PRODUCT_CATEGORY,PRODUCT_TYPE,PRODUCT_NAME 
 ORDER BY ROUND(SUM(TRANSACTION_QTY*UNIT_PRICE)) DESC LIMIT 5;
 ```
-Q8. Which days of the week were busy? (Week days or Weekends?)
+![Screenshot 2024-12-17 192114](https://github.com/user-attachments/assets/738d4ca0-4f46-4eda-8ffc-4c432c084422)
+
+**Q8. What were overall Bottom 5 Products on the basis of Sales Volume?**
+```sql
+SELECT PRODUCT_CATEGORY,PRODUCT_TYPE,PRODUCT_NAME,SUM(TRANSACTION_QTY) AS 'TOTAL QTY SOLD' 
+FROM SALES GROUP BY PRODUCT_CATEGORY,PRODUCT_TYPE,PRODUCT_NAME 
+ORDER BY SUM(TRANSACTION_QTY) LIMIT 5;
+```
+![Screenshot 2024-12-17 192206](https://github.com/user-attachments/assets/3b85505b-74db-4e60-b02b-5255599712fb)
+
+**Q9. What were overall Bottom 5 Products on the basis of Revenue?**
+```sql
+SELECT PRODUCT_CATEGORY,PRODUCT_TYPE,PRODUCT_NAME,ROUND(SUM(TRANSACTION_QTY*UNIT_PRICE)) AS 'TOTAL SALES' 
+FROM SALES GROUP BY PRODUCT_CATEGORY,PRODUCT_TYPE,PRODUCT_NAME 
+ORDER BY ROUND(SUM(TRANSACTION_QTY*UNIT_PRICE)) LIMIT 5;
+```
+![Screenshot 2024-12-17 192314](https://github.com/user-attachments/assets/5c82a77b-f748-476f-93c0-6499edf0c656)
+
+
+Q. Which days of the week were busy? (Week days or Weekends?)
 ```sql
 SELECT 
     day_name,
