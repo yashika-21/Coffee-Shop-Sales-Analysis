@@ -301,17 +301,28 @@ GROUP BY HOURS ORDER BY HOURS;
 4. The top 3 revenue generating categories across stores were Coffee, Tea and Bakery.
 5. Some of the products such as Columbian Medium Roast(Coffee) & Our Old Time Diner Blender(Coffee) were in top 5 most demanded products but they were not in the top 5 revenue generating list. This indicates that although we are selling more of them, we are not earning to the potential. Through thorough evaluation prices can be revised.
 6. The least selling product was Dark Chocolate from the Packaged Chocolate category as it had least revenue and quantity sold. Some of the products in the Loose Tea and Coffee Beans category were also least selling.
-7. Looking at the best seller in each category (Based on Revenue) 
-   as follows -
+7. Best seller in each category - Based on Sales Volume (Quantity sold)
+   
    i. Bakery - Chocolate Croissant
-   ii. Branded - I Need My Bean! Latte Cup 
-   iii. Coffee - Ethiopia 
-   iv. Coffee Beans - Civet Cat 
-   v. Drinking Chocolate - Sustainably Grown Organic 
+   ii. Branded - I Need My Bean! Latte Cup
+   iii. Coffee - Ethiopia
+   iv. Coffee Beans - Civet Cat
+   v. Drinking Chocolate - Sustainably Grown Organic
    vi. Flavours - Sugar Free Vanilla Syrup
    vii. Loose Tea - Morning Sunrise Chai
    viii. Packaged Chocolate - Sustainably Grown Organic
    ix. Tea - Morning Sunrise Chai
-8. overall the transactions were more on weekdays as compared to weekends. 
-
-11. the peak sales time across stores was 8 am - 10 am. 
+   
+8. Best seller in each category - Based on Revenue
+   i. Bakery - Chocolate Croissant
+   ii. Branded - I Need My Bean! T-shirt
+   iii. Coffee - Jamican Coffee River
+   iv. Coffee Beans - Civet Cat
+   v. Drinking Chocolate - Sustainably Grown Organic
+   vi. Flavours - Sugar Free Vanilla Syrup
+   vii. Loose Tea - Morning Sunrise Chai
+   viii. Packaged Chocolate - Chilli Mayan
+   ix. Tea - Morning Sunrise Chai
+   
+9. The number of transactions were more on weekdays as compared to weekends with Friday being the busiest day.
+10. The Peak sale hours during the day were usually 8 AM - 10 AM. 
