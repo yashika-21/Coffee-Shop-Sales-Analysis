@@ -290,4 +290,4 @@ GROUP BY HOURS ORDER BY HOURS;
 ![Screenshot 2024-12-17 210255](https://github.com/user-attachments/assets/9133fcf5-24ac-4968-8623-41137e48cc26)  
 
 ## Business Insights and Recommendations
-
+- Sales of 
