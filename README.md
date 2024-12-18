@@ -303,8 +303,8 @@ GROUP BY HOURS ORDER BY HOURS;
 6. The least selling product was Dark Chocolate from the Packaged Chocolate category as it had least revenue and quantity sold. Some of the products in the Loose Tea and Coffee Beans category were also least selling.
 7. Best seller in each category - Based on Sales Volume (Quantity sold)
    
-   i. Bakery - Chocolate Croissant
-   ii. Branded - I Need My Bean! Latte Cup
+   -  Bakery - Chocolate Croissant
+   -  Branded - I Need My Bean! Latte Cup
    iii. Coffee - Ethiopia
    iv. Coffee Beans - Civet Cat
    v. Drinking Chocolate - Sustainably Grown Organic
