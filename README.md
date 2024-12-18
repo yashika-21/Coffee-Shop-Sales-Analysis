@@ -174,11 +174,16 @@ SELECT ROUND(SUM(transaction_qty * unit_price)) TOTAL_REVENUE,COUNT(*) TOTAL_ORD
 
 **Q2. Store wise contribution to sales?**
 ```sql
-SELECT STORE_ID,STORE_LOCATION,ROUND(SUM(transaction_qty * unit_price),0) TOTAL_REVENUE
+SELECT 
+    STORE_LOCATION,
+    ROUND(SUM(transaction_qty * unit_price),0) TOTAL_REVENUE, 
+    sum(transaction_qty) QTY_SOLD,
+    count(transaction_id) NO_OF_TRANSACTIONS
 FROM SALES
-GROUP BY STORE_ID,STORE_LOCATION ORDER BY TOTAL_REVENUE DESC;  
+GROUP BY STORE_LOCATION ORDER BY TOTAL_REVENUE DESC;  
 ```
-![Screenshot 2024-12-12 125429](https://github.com/user-attachments/assets/b575cfca-dcb2-4c6c-9122-f1ddfc405e9c)
+![Screenshot 2024-12-18 203526](https://github.com/user-attachments/assets/8da689fd-0cc4-4a20-a5af-3f770116bb26)  
+
 
 **Q3. What were the sales per month?**
 ```sql
@@ -190,11 +195,11 @@ FROM SALES GROUP BY MONTH_NAME ORDER BY MONTHLY_SALES DESC;
 **Q4. What were the monthly sales of each store?**
 ```sql
 SELECT 
-	MONTH_NAME,
-	month(TRANSACTION_DATE) AS MONTH_NUMBER,
-	STORE_LOCATION,
-	ROUND(SUM(transaction_qty * unit_price)) 'TOTAL SALES',
-	RANK() OVER(PARTITION BY month(TRANSACTION_DATE) ORDER BY ROUND(SUM(transaction_qty * unit_price)) DESC) RNK
+    MONTH_NAME,
+    month(TRANSACTION_DATE) AS MONTH_NUMBER,
+    STORE_LOCATION,
+    ROUND(SUM(transaction_qty * unit_price)) 'TOTAL SALES',
+    RANK() OVER(PARTITION BY month(TRANSACTION_DATE) ORDER BY ROUND(SUM(transaction_qty * unit_price)) DESC) RNK
 FROM SALES 
 GROUP BY MONTH_NAME,month(TRANSACTION_DATE),STORE_LOCATION;
 ```
@@ -289,5 +294,28 @@ GROUP BY HOURS ORDER BY HOURS;
 ```
 ![Screenshot 2024-12-17 210255](https://github.com/user-attachments/assets/9133fcf5-24ac-4968-8623-41137e48cc26)  
 
-## Business Insights and Recommendations
-- Sales of 
+## Business Insights
+1. Of the 3 stores, Hell's Kitchen contributed the most to sales i.e. $2,36,511 followed by Astoria($2,32,244) and then Lower Manhattan($2,30,057).
+2. The sales saw an overall increasing month-on-month trend with the highest sales in June. The only month there was a dip in sales was February.
+3. On a monthly basis, each month Hell's Kitchen had the most sales.
+4. The top 3 revenue generating categories across stores were Coffee, Tea and Bakery.
+6. Some of the products such as Columbian Medium Roast(Coffee) & Our Old Time Diner Blender(Coffee) were in top 5 most demanded products but they were not in the top 5 revenue generating list. This indicates that although we are selling more of them, we are not earning to the potential. Through thorough evaluation prices can be revised.
+7. 
+
+8. the least selling product was dark chocolate from the packaged choc category as it had least revenue and qty sold. some of the products in the loose tea and coffee beans category were also least selling.
+
+9. if we look at the top 2 selling products in each category (revenue) 
+   as follows -
+   i. bakery - Chocolate croissant
+   ii. branded - cup 
+   iii. coffee - Ethiopia 
+   iv. coffee beans - civet cat 
+   v. drinking chocolate - sustainably grown organic 
+   vi. flavours - sugar free vanilla syrup
+   vii. loose tea - morning sunrise chai
+   viii.packaged choc -sustanbly grown org
+   ix. tea - morning sunrise chai
+
+10. overall the transactions were more on weekdays as compared to weekends. 
+
+11. the peak sales time across stores was 8 am - 10 am. 
