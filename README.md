@@ -101,18 +101,21 @@ SELECT DISTINCT(MONTHNAME(transaction_date)) 'MONTHS' FROM SALES;
 ```
 ![Screenshot 2024-12-12 122522](https://github.com/user-attachments/assets/32a2ea3c-91b1-4ce8-bf9a-7c936d80e207)
 
--- ADDING MONTH NUMBER COLUMN
+**Adding Month Number Column**  
+```sql
 ALTER TABLE SALES ADD COLUMN month_no INT;
 UPDATE SALES SET month_no = MONTH(transaction_date);
-
--- ADDING MONTH NAME COLUMN
+```
+**Adding Month Name Column**  
+```sql
 ALTER TABLE SALES ADD COLUMN month_name VARCHAR(15);
 UPDATE SALES SET month_name = MONTHNAME(transaction_date);
-
--- ADDING DAY NAME COLUMN
+```
+**Adding day name Column**
+```sql
 ALTER TABLE SALES ADD COLUMN day_name VARCHAR(10);
 UPDATE SALES SET day_name = DAYNAME(transaction_date);
-
+```
 **3. transaction_time**
 - Checking for the earliest hour at which the transactions took place.
 ```sql
@@ -163,7 +166,19 @@ There are 9 product categories.
 SELECT DISTINCT(product_type),PRODUCT_DETAIL FROM SALES;
 ```
 
-**11. product_detail**
+**11. product_detail**  
+This column has the exact name of the product. However, the sizes of the product are also included in the same column. I will be extracting the product name from the column and create a new column based on that. The size part will be dropped.
+```sql
+CREATE TABLE TRIAL AS
+(select *, 
+	CASE WHEN RIGHT(TRIM(lower(product_detail)),2) IN ('sm','rg','lg')
+    THEN SUBSTRING_INDEX(TRIM(product_detail),' ',LENGTH(TRIM(product_detail))-LENGTH(REPLACE(product_detail,' ','')))
+    ELSE product_detail
+    END AS product_name
+FROM SALES);
+
+ALTER TABLE TRIAL RENAME TO SALES;
+```
 
 ## Data Analysis and Business Questions
 **Q1. What were the total sales and total orders for the 6 months?**
@@ -252,31 +267,33 @@ ORDER BY ROUND(SUM(TRANSACTION_QTY*UNIT_PRICE)) LIMIT 5;
 ```
 ![Screenshot 2024-12-17 192314](https://github.com/user-attachments/assets/5c82a77b-f748-476f-93c0-6499edf0c656)
 
-**Q10. What were the Top 2 products in each category on the basis of quantity sold?**
+**Q10. Which product was the best seller in each category on the basis of quantity sold?**
 ```sql
 SELECT * FROM
 (SELECT 
-    PRODUCT_CATEGORY,PRODUCT_TYPE,
+    PRODUCT_CATEGORY,
+    PRODUCT_TYPE,
     PRODUCT_NAME,
     SUM(TRANSACTION_QTY) AS 'TOTAL QTY SOLD',
     DENSE_RANK() OVER(PARTITION BY PRODUCT_CATEGORY ORDER BY SUM(TRANSACTION_QTY) DESC) RN
 FROM SALES
-GROUP BY PRODUCT_CATEGORY, PRODUCT_TYPE,PRODUCT_NAME) BEST_SELLERS WHERE RN <= 2;
+GROUP BY PRODUCT_CATEGORY, PRODUCT_TYPE,PRODUCT_NAME) BEST_SELLERS WHERE RN = 1;
 ```
-![Screenshot 2024-12-17 204121](https://github.com/user-attachments/assets/73284976-70f0-46ae-b801-fa4c750953d2)
+![image](https://github.com/user-attachments/assets/cf829eba-2466-45d1-b8e0-4acf2367c096)
 
-**Q11. What were the Top 2 products in each category on the basis of revenue?**
+**Q11. What product was the best seller in each category on the basis of revenue?**
 ```sql
 SELECT * FROM
 (SELECT 
-    PRODUCT_CATEGORY,PRODUCT_TYPE,
+    PRODUCT_CATEGORY,
+    PRODUCT_TYPE,
     PRODUCT_NAME,
     ROUND(SUM(TRANSACTION_QTY*UNIT_PRICE)) AS 'TOTAL SALES',
     DENSE_RANK() OVER(PARTITION BY PRODUCT_CATEGORY ORDER BY ROUND(SUM(TRANSACTION_QTY*UNIT_PRICE)) DESC) RN
 FROM SALES
-GROUP BY PRODUCT_CATEGORY, PRODUCT_TYPE,PRODUCT_NAME) BEST_SELLERS WHERE RN <= 2;
+GROUP BY PRODUCT_CATEGORY, PRODUCT_TYPE,PRODUCT_NAME) BEST_SELLERS WHERE RN = 1;
 ```
-![Screenshot 2024-12-17 204319](https://github.com/user-attachments/assets/6b142a99-5471-47bb-8ee6-74d4b1e39308)
+![image](https://github.com/user-attachments/assets/444dd024-43ef-405f-b016-eaa3a57fbf32)
 
 **Q12. Which days of the week were busy?**
 ```sql
