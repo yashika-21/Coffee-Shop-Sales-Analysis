@@ -305,24 +305,30 @@ GROUP BY HOURS ORDER BY HOURS;
    
    -  Bakery - Chocolate Croissant
    -  Branded - I Need My Bean! Latte Cup
-   iii. Coffee - Ethiopia
-   iv. Coffee Beans - Civet Cat
-   v. Drinking Chocolate - Sustainably Grown Organic
-   vi. Flavours - Sugar Free Vanilla Syrup
-   vii. Loose Tea - Morning Sunrise Chai
-   viii. Packaged Chocolate - Sustainably Grown Organic
-   ix. Tea - Morning Sunrise Chai
+   -  Coffee - Ethiopia
+   -  Coffee Beans - Civet Cat
+   -  Drinking Chocolate - Sustainably Grown Organic
+   - Flavours - Sugar Free Vanilla Syrup
+   - Loose Tea - Morning Sunrise Chai
+   - Packaged Chocolate - Sustainably Grown Organic
+   - Tea - Morning Sunrise Chai
    
 8. Best seller in each category - Based on Revenue
-   i. Bakery - Chocolate Croissant
-   ii. Branded - I Need My Bean! T-shirt
-   iii. Coffee - Jamican Coffee River
-   iv. Coffee Beans - Civet Cat
-   v. Drinking Chocolate - Sustainably Grown Organic
-   vi. Flavours - Sugar Free Vanilla Syrup
-   vii. Loose Tea - Morning Sunrise Chai
-   viii. Packaged Chocolate - Chilli Mayan
-   ix. Tea - Morning Sunrise Chai
+   - Bakery - Chocolate Croissant
+   - Branded - I Need My Bean! T-shirt
+   - Coffee - Jamican Coffee River
+   - Coffee Beans - Civet Cat
+   - Drinking Chocolate - Sustainably Grown Organic
+   - Flavours - Sugar Free Vanilla Syrup
+   - Loose Tea - Morning Sunrise Chai
+   - Packaged Chocolate - Chilli Mayan
+   - Tea - Morning Sunrise Chai
    
 9. The number of transactions were more on weekdays as compared to weekends with Friday being the busiest day.
-10. The Peak sale hours during the day were usually 8 AM - 10 AM. 
+10. The Peak sale hours during the day were usually 8 AM - 10 AM.
+
+## Business Recommendations
+- Efforts should be made to improve sales in Lower Manhattan. The store had sold the most quantity among the 3 stores yet it had fewer number of transactions and revenue contribution. Products which were in high demand can be paired with lesser selling products to increase sales. Offers and discounts can be also be introduced.
+- Special offers can be intoduced on weekends to increase transactions.
+- During the off peak hours of the days, the store can offer discounts to attract customers.
+- A combination of best selling and least selling products can be figured out that can help increase sales of all products.
