@@ -1,5 +1,5 @@
-# Project Overview
-
+# Project Objective
+The objective of the project is to analyze the sales of the Coffee Shop and find useful insights that can help increase the sales. 
 
 # Project Structure
 
@@ -171,7 +171,7 @@ This column has the exact name of the product. However, the sizes of the product
 ```sql
 CREATE TABLE TRIAL AS
 (select *, 
-	CASE WHEN RIGHT(TRIM(lower(product_detail)),2) IN ('sm','rg','lg')
+    CASE WHEN RIGHT(TRIM(lower(product_detail)),2) IN ('sm','rg','lg')
     THEN SUBSTRING_INDEX(TRIM(product_detail),' ',LENGTH(TRIM(product_detail))-LENGTH(REPLACE(product_detail,' ','')))
     ELSE product_detail
     END AS product_name
