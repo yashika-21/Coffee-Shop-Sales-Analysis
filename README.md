@@ -295,27 +295,23 @@ GROUP BY HOURS ORDER BY HOURS;
 ![Screenshot 2024-12-17 210255](https://github.com/user-attachments/assets/9133fcf5-24ac-4968-8623-41137e48cc26)  
 
 ## Business Insights
-1. Of the 3 stores, Hell's Kitchen contributed the most to sales i.e. $2,36,511 followed by Astoria($2,32,244) and then Lower Manhattan($2,30,057).
+1. Of the 3 stores, Hell's Kitchen contributed the most to sales i.e. $2,36,511, followed by Astoria ($2,32,244) and then Lower Manhattan ($2,30,057).
 2. The sales saw an overall increasing month-on-month trend with the highest sales in June. The only month there was a dip in sales was February.
 3. On a monthly basis, each month Hell's Kitchen had the most sales.
 4. The top 3 revenue generating categories across stores were Coffee, Tea and Bakery.
-6. Some of the products such as Columbian Medium Roast(Coffee) & Our Old Time Diner Blender(Coffee) were in top 5 most demanded products but they were not in the top 5 revenue generating list. This indicates that although we are selling more of them, we are not earning to the potential. Through thorough evaluation prices can be revised.
-7. 
-
-8. the least selling product was dark chocolate from the packaged choc category as it had least revenue and qty sold. some of the products in the loose tea and coffee beans category were also least selling.
-
-9. if we look at the top 2 selling products in each category (revenue) 
+5. Some of the products such as Columbian Medium Roast(Coffee) & Our Old Time Diner Blender(Coffee) were in top 5 most demanded products but they were not in the top 5 revenue generating list. This indicates that although we are selling more of them, we are not earning to the potential. Through thorough evaluation prices can be revised.
+6. The least selling product was Dark Chocolate from the Packaged Chocolate category as it had least revenue and quantity sold. Some of the products in the Loose Tea and Coffee Beans category were also least selling.
+7. Looking at the best seller in each category (Based on Revenue) 
    as follows -
-   i. bakery - Chocolate croissant
-   ii. branded - cup 
-   iii. coffee - Ethiopia 
-   iv. coffee beans - civet cat 
-   v. drinking chocolate - sustainably grown organic 
-   vi. flavours - sugar free vanilla syrup
-   vii. loose tea - morning sunrise chai
-   viii.packaged choc -sustanbly grown org
-   ix. tea - morning sunrise chai
-
-10. overall the transactions were more on weekdays as compared to weekends. 
+   i. Bakery - Chocolate Croissant
+   ii. Branded - I Need My Bean! Latte Cup 
+   iii. Coffee - Ethiopia 
+   iv. Coffee Beans - Civet Cat 
+   v. Drinking Chocolate - Sustainably Grown Organic 
+   vi. Flavours - Sugar Free Vanilla Syrup
+   vii. Loose Tea - Morning Sunrise Chai
+   viii. Packaged Chocolate - Sustainably Grown Organic
+   ix. Tea - Morning Sunrise Chai
+8. overall the transactions were more on weekdays as compared to weekends. 
 
 11. the peak sales time across stores was 8 am - 10 am. 
