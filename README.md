@@ -1,5 +1,5 @@
 # Project Objective
-The project aims at analyzing the sales of a Coffee Shop to identify key sales trends, customer behaviour, and product performance, that can help improve the overall performance. 
+The project aims at analyzing the sales of a Coffee Shop to identify key sales trends, customer behaviour, and product performance, that can help improve the overall profitabilty. 
 
 # Project Structure
 
