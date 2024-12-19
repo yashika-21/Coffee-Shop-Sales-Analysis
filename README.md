@@ -151,7 +151,7 @@ SELECT DISTINCT(store_id),store_location FROM SALES;  -- STORE + LOCATION
 ```sql
 SELECT DISTINCT(product_id),PRODUCT_DETAIL FROM SALES ORDER BY PRODUCT_ID; -- ID'S OF THE PRODUCTS THEIR NAMES
 ```
-**8. unit_price **
+**8. unit_price**
 ```sql
 SELECT AVG(UNIT_PRICE) FROM SALES;
 ```
