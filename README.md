@@ -1,5 +1,5 @@
 # Project Objective
-The objective of the project is to analyze the sales of the Coffee Shop and find useful insights that can help increase the sales. 
+The objective of the project is to analyze the sales of the Coffee Shop to identify trends in sales, customer behaviour and product performance, providing useful insights to increase the sales.
 
 # Project Structure
 
